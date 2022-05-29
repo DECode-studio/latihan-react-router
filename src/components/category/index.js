@@ -8,19 +8,11 @@ const Category = () => {
     const [categories, setCategories] = useState([])
     const [refetch, setRefetch] = useState({})
 
-    const storeCategory = async (form) => {
-        try {
-            const response = await axios.post('https://rest-api-orm.herokuapp.com/api/category/create', form)
-            setRefetch(response.data.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     const getCategoriesData = async () => {
         try {
             const response = await axios.get('https://rest-api-orm.herokuapp.com/api/category/list')
             setCategories(response.data.data)
+            console.log(response.data.data);
         } catch (error) {
             console.log(error)
         }
@@ -29,6 +21,16 @@ const Category = () => {
     useEffect(
         () => getCategoriesData
         , [refetch])
+
+    const storeCategory = async (form) => {
+        try {
+            const response = await axios.post('https://rest-api-orm.herokuapp.com/api/category/create', form)
+            setRefetch(response.data.data)
+            console.log(response.data.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div className='container'>
