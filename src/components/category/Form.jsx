@@ -3,6 +3,9 @@ import axios from 'axios'
 
 const Form = ({ storeCategory }) => {
     const [form, setForm] = useState({})
+
+    var txt_name = ""
+    var txt_description = ""
     
     return (
         <div>
