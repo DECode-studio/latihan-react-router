@@ -8,7 +8,7 @@ const Category = () => {
     const [categories, setCategories] = useState([])
     const [refetch, setRefetch] = useState({})
 
-    const getCategoriesData = async () => {
+    async function getCategoriesData() {
         try {
             const response = await axios.get('https://rest-api-orm.herokuapp.com/api/category/list')
             setCategories(response.data.data)
@@ -34,7 +34,7 @@ const Category = () => {
 
     return (
         <div className='container'>
-            <Form storeCategory={storeCategory} />
+            <Form storeCategory={storeCategory} getCategoriesData={getCategoriesData} />
             <br></br>
             <Table categories={categories} />
             <FloatingButton />

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const Form = ({ storeCategory }) => {
+const Form = ({ storeCategory , getCategoriesData}) => {
     const [form, setForm] = useState({})
 
     var txt_name = ""
@@ -24,7 +24,10 @@ const Form = ({ storeCategory }) => {
                 })}/>
             </div>
             <br />
+            <div className='d-flex'>
             <button type="submit" className="btn btn-primary" onClick={() => storeCategory(form)}>Submit</button>
+            <button type="button" className="btn btn-primary ms-3" onClick={() => getCategoriesData()}>Load</button>  
+            </div>
         </div>
     )
 }
