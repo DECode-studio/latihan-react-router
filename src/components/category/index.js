@@ -11,8 +11,9 @@ const Category = () => {
     async function getCategoriesData() {
         try {
             const response = await axios.get('https://rest-api-orm.herokuapp.com/api/category/list')
-            setCategories(response.data.data)
+
             console.log(response.data.data);
+            return setCategories(response.data.data)
         } catch (error) {
             console.log(error)
         }
